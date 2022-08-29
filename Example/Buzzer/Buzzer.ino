@@ -1,6 +1,6 @@
 #include "Buzzer.hpp"
 
-#define BUZZER_PIN 15
+#define BUZZER_PIN 3 // pin that connect buzzer 
 
 Buzzer buzzer(BUZZER_PIN);
 
