@@ -37,7 +37,7 @@
 |&&|AND|และ : เงื่อนไขต้องเป็นจริงทั้งหมด  ผลคือจริง|
 |\|\||OR|หรือ : เงื่อนไขบางอันเป็นจริง ผลคือจริง|
 
-### คำสั่งต่าง ๆ ที่ควรรู้ [Arduino Reference](https://www.arduino.cc/reference/en/)
+### คำสั่งต่าง ๆ ที่ควรรู้ [(Arduino Reference)](https://www.arduino.cc/reference/en/)
 |Syntax|Description|Examples|
 |:---:|:---:|:---:|
 ||**Digital I/O**||
