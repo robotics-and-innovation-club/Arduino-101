@@ -1,4 +1,4 @@
-# How to use Buzzer
+# How to use Buzzer (THE HARD WAY)
 
 ## Description
 
@@ -15,4 +15,15 @@ noTone(pinNumber);
 // Stops the generation of a square wave triggered by tone(). 
 // Has no effect if no tone is being generated.
 ```
-# DON'T FORGOT TO DOWNLOAD `Buzzer.hpp` AND PUT IT IN THE SAME FLODERS
+
+# How to use Buzzer (THE EASY WAY)
+
+__DON'T FORGOT TO DOWNLOAD `Buzzer.hpp` AND PUT IT IN THE SAME FLODERS__
+
+สร้างตัวแปร `Buzzer ชื่อตัวแปร(pin)`
+
+เล่นโน๊ต `ชื่อตัวแปร.play(NOTE, duration)` 
+`NOTE`เช่น `NOTE_C4` เป็นต้น
+`duration` เช่น 2 โน๊ตตัวขาว, 4 โน๊ตตัวดำ
+
+หยุดเล่นโน๊ต `ชื่อตัวแปร.stop()` 
