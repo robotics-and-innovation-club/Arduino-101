@@ -47,4 +47,3 @@
 ||**Analog I/O**||
 |`analogRead(pin)`|อ่านค่า analog จาก `pin`|`analogRead(A0)`|
 |`analogWrite(pin, value)`|OUTPUT `value` (analog value) ที่ `pin`|`analogWrite(3, 255)` `analogWrite(3, 0)`|
-
