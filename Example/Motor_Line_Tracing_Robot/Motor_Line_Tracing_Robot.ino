@@ -1,3 +1,7 @@
+/* Example code for NKP V2.2 line tracking robot
+ * Jan. 16, 2023 : Edited by tangnatta
+ */
+
 // Motor pin
 #define MOTOR_R_1 2
 #define MOTOR_R_2 4
