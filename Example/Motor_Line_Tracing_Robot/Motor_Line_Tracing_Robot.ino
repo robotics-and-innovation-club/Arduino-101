@@ -23,10 +23,12 @@ void setup()
     pinMode(MOTOR_R_2, OUTPUT);
     pinMode(MOTOR_L_1, OUTPUT);
     pinMode(MOTOR_L_2, OUTPUT);
+    // ledcSetup(ledChannel, freq, resolution);
     ledcSetup(MOTOR_R_1_CH, 5000, 8);
     ledcSetup(MOTOR_R_2_CH, 5000, 8);
     ledcSetup(MOTOR_L_1_CH, 5000, 8);
     ledcSetup(MOTOR_L_2_CH, 5000, 8);
+    // ledcAttachPin(GPIO, channel)
     ledcAttachPin(MOTOR_R_1, 6);
     ledcAttachPin(MOTOR_R_2, 7);
     ledcAttachPin(MOTOR_L_1, 4);
@@ -65,6 +67,7 @@ enum motor_state
 // control motor right 
 void motor_right(motor_state state, int speed)
 {
+    // ledcWrite(channel, dutycycle)
     if (state == MOTOR_FORWARD)
     {
         ledcWrite(MOTOR_R_1_CH, 0);
@@ -80,6 +83,7 @@ void motor_right(motor_state state, int speed)
 // control motor left
 void motor_left(motor_state state, int speed)
 {
+    // ledcWrite(channel, dutycycle)
     if (state == MOTOR_FORWARD)
     {
         ledcWrite(MOTOR_L_1_CH, 0);
