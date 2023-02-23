@@ -1,5 +1,5 @@
 /* Example code for NKP V2.2 line tracking robot
- * Jan. 16, 2023 : Edited by tangnatta
+ * Jan. 23, 2023 : Edited by tangnatta
  */
 
 // Motor pin
@@ -18,7 +18,7 @@
 
 void setup()
 {
-    pinMode(SW, INPUT);
+    pinMode(SW, INPUT_PULLUP);
     pinMode(MOTOR_R_1, OUTPUT);
     pinMode(MOTOR_R_2, OUTPUT);
     pinMode(MOTOR_L_1, OUTPUT);
@@ -44,96 +44,97 @@ void loop()
     delay(1000);
     backward(100);
     delay(1000);
-    right_around();
+    right_around(100);
     delay(1000);
-    left_around();
+    left_around(100);
     delay(1000);
-    right();
+    right(100);
     delay(1000);
-    left();
+    left(100);
+    delay(1000);
+    stop();
     delay(1000);
 }
 
-/*
-meaning MOTOR_FORWARD  = 1
-        MOTOR_BACKWARD = 2
-*/
-enum motor_state
-{
-    MOTOR_FORWARD,
-    MOTOR_BACKWARD,
-};
-
-// control motor right 
-void motor_right(motor_state state, int speed)
+// control motor right
+void motor_right(int speed)
 {
     // ledcWrite(channel, dutycycle)
-    if (state == MOTOR_FORWARD)
+    if (speed > 0)
     {
         ledcWrite(MOTOR_R_1_CH, 0);
         ledcWrite(MOTOR_R_2_CH, speed);
     }
-    else if (state == MOTOR_BACKWARD)
+    else if (speed < 0)
     {
-        ledcWrite(MOTOR_R_1_CH, speed);
+        ledcWrite(MOTOR_R_1_CH, -speed);
+        ledcWrite(MOTOR_R_2_CH, 0);
+    }
+    else
+    {
+        ledcWrite(MOTOR_R_1_CH, 0);
         ledcWrite(MOTOR_R_2_CH, 0);
     }
 }
 
 // control motor left
-void motor_left(motor_state state, int speed)
+void motor_left(int speed)
 {
     // ledcWrite(channel, dutycycle)
-    if (state == MOTOR_FORWARD)
+    if (speed > 0)
     {
         ledcWrite(MOTOR_L_1_CH, 0);
         ledcWrite(MOTOR_L_2_CH, speed);
     }
-    else if (state == MOTOR_BACKWARD)
+    else if (speed < 0)
     {
-        ledcWrite(MOTOR_L_1_CH, speed);
+        ledcWrite(MOTOR_L_1_CH, -speed);
+        ledcWrite(MOTOR_L_2_CH, 0);
+    }
+    else
+    {
+        ledcWrite(MOTOR_L_1_CH, 0);
         ledcWrite(MOTOR_L_2_CH, 0);
     }
 }
 
+void stop()
+{
+    motor(0, 0);
+}
+
+void motor(int left_speed, int right_speed)
+{
+    motor_right(right_speed);
+    motor_left(left_speed);
+}
+
 void forward(int speed)
 {
-    motor_right(MOTOR_FORWARD, speed);
-    motor_left(MOTOR_FORWARD, speed);
+    motor(speed, speed);
 }
 
 void backward(int speed)
 {
-    motor_right(MOTOR_BACKWARD, speed);
-    motor_left(MOTOR_BACKWARD, speed);
+    motor(-speed, -speed);
 }
 
-void left_around()
+void left_around(int speed)
 {
-    motor_right(MOTOR_FORWARD, 100);
-    motor_left(MOTOR_BACKWARD, 100);
+    motor(speed, -speed);
 }
 
-void right_around()
+void right_around(int speed)
 {
-    motor_right(MOTOR_BACKWARD, 100);
-    motor_left(MOTOR_FORWARD, 100);
+    motor(-speed, speed);
 }
 
-void left()
+void right(int speed)
 {
-    motor_right(MOTOR_FORWARD, 100);
-    motor_left(MOTOR_FORWARD, 50);
+    motor(0, speed);
 }
 
-void right()
+void left(int speed)
 {
-    motor_right(MOTOR_FORWARD, 50);
-    motor_left(MOTOR_FORWARD, 100);
-}
-
-void stop()
-{
-    motor_right(MOTOR_FORWARD, 0);
-    motor_left(MOTOR_FORWARD, 0);
+    motor(speed, 0);
 }
