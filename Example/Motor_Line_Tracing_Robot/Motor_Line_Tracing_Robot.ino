@@ -56,7 +56,10 @@ void loop()
     delay(1000);
 }
 
-// control motor right
+/*
+control motor right (  -255   <->   255  )
+                    (backward <-> forward)
+*/
 void motor_right(int speed)
 {
     // ledcWrite(channel, dutycycle)
@@ -77,7 +80,10 @@ void motor_right(int speed)
     }
 }
 
-// control motor left
+/*
+control motor left (  -255   <->   255  )
+                    (backward <-> forward)
+*/
 void motor_left(int speed)
 {
     // ledcWrite(channel, dutycycle)
