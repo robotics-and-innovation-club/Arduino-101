@@ -3,16 +3,16 @@
  */
 
 // Motor pin
-#define MOTOR_R_1 2
-#define MOTOR_R_2 4
-#define MOTOR_L_1 16
-#define MOTOR_L_2 17
+#define MOTOR_R_1 2  // Backward
+#define MOTOR_R_2 4  // Forward
+#define MOTOR_L_1 16 // Backward
+#define MOTOR_L_2 17 // Forward
 
 // Motor channel
-#define MOTOR_R_1_CH 6
-#define MOTOR_R_2_CH 7
-#define MOTOR_L_1_CH 4
-#define MOTOR_L_2_CH 5
+#define MOTOR_R_1_CH 6 // Backward
+#define MOTOR_R_2_CH 7 // Forward
+#define MOTOR_L_1_CH 4 // Backward
+#define MOTOR_L_2_CH 5 // Forward
 
 #define SW 15 // SWITCH
 
