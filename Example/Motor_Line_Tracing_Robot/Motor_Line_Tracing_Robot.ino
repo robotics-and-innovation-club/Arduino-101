@@ -57,8 +57,8 @@ void loop()
 }
 
 /*
-control motor right (  -255   <->   255  )
-                    (backward <-> forward)
+control motor right speed = (  -255   <->   255  )
+                            (backward <-> forward)
 */
 void motor_right(int speed)
 {
@@ -81,8 +81,8 @@ void motor_right(int speed)
 }
 
 /*
-control motor left (  -255   <->   255  )
-                   (backward <-> forward)
+control motor left speed = (  -255   <->   255  )
+                           (backward <-> forward)
 */
 void motor_left(int speed)
 {
