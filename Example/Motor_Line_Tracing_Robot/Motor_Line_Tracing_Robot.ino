@@ -68,14 +68,9 @@ void motor_right(int speed)
         ledcWrite(MOTOR_R_1_CH, 0);
         ledcWrite(MOTOR_R_2_CH, speed);
     }
-    else if (speed < 0)
-    {
-        ledcWrite(MOTOR_R_1_CH, -speed);
-        ledcWrite(MOTOR_R_2_CH, 0);
-    }
     else
     {
-        ledcWrite(MOTOR_R_1_CH, 0);
+        ledcWrite(MOTOR_R_1_CH, -speed);
         ledcWrite(MOTOR_R_2_CH, 0);
     }
 }
@@ -92,14 +87,9 @@ void motor_left(int speed)
         ledcWrite(MOTOR_L_1_CH, 0);
         ledcWrite(MOTOR_L_2_CH, speed);
     }
-    else if (speed < 0)
-    {
-        ledcWrite(MOTOR_L_1_CH, -speed);
-        ledcWrite(MOTOR_L_2_CH, 0);
-    }
     else
     {
-        ledcWrite(MOTOR_L_1_CH, 0);
+        ledcWrite(MOTOR_L_1_CH, -speed);
         ledcWrite(MOTOR_L_2_CH, 0);
     }
 }
