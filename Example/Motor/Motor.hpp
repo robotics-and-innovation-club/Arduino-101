@@ -1,3 +1,7 @@
+/* Motor controls 
+ * Mar 7, 2023 : Edited by tangnatta
+ */
+
 #include <Arduino.h>
 
 class Motor
@@ -24,6 +28,7 @@ public:
         if (this->EN != NULL)
             pinMode(this->EN, OUTPUT);
     }
+
     /* Constructor
      * @param: IN1 (int) - pin number for IN1
      * @param: IN2 (int) - pin number for IN2
@@ -60,7 +65,7 @@ public:
      */
     void forward(unsigned int speed)
     {
-        speed = speed * DAC_MAX;
+        // speed = speed * DAC_MAX;
         speed = (speed < 0) ? 0 : speed;
         speed = (speed > DAC_MAX) ? DAC_MAX : speed;
         digitalWrite(this->IN1, HIGH);
@@ -74,7 +79,7 @@ public:
      */
     void backward(unsigned int speed)
     {
-        speed = speed * DAC_MAX;
+        // speed = speed * DAC_MAX;
         speed = (speed < 0) ? 0 : speed;
         speed = (speed > DAC_MAX) ? DAC_MAX : speed;
         digitalWrite(this->IN1, LOW);
@@ -99,6 +104,3 @@ private:
     int EN;
     int DAC_MAX;
 };
-
-Motor motor1(2, 3, 5);
-Motor motor2(2, 3);
